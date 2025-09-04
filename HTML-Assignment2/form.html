@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Event Registration Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <div class="inx">
+    <a href="C:\Users\USER1\source\repos\Ridha-18\HTML-Assignment2\Assignment2(store).html">Home</a> |
+    <a href="C:\Users\USER1\source\repos\Ridha-18\HTML-Assignment2\Aboutus.html">About Us</a> |
+    <a href="C:\Users\USER1\source\repos\Ridha-18\HTML-Assignment2\Contactus.html">Contact Us</a> |
+    <a href="C:\Users\USER1\source\repos\Ridha-18\HTML-Assignment2\form.html">Form</a>
+  </div>
+
+  <style>
+  .inx {
+    text-align: center;         /* centers text */
+    font-size: 15px;            /* makes text bigger */
+    padding: 5px;              /* space around text */
+    border-radius: 5px;        /* rounded corners of background */
+  }
+
+  /* Style the links inside .inx */
+  .inx a {
+    color: black;          /* text color */
+    font-weight: bold;     /* bold text */
+    text-decoration: none; /* removes underline */
+    margin: 0 10px;        /* spacing between links */
+  }
+ 
+  </style>
+
+  <style>
+    body { 
+      background:#f7f7f5; 
+      padding: 24px;
+    }
+
+    h2{
+        text-align :center;
+    }
+
+    form {
+      max-width: 520px;
+      margin: 0 auto;
+      background:#fff;
+      padding: 20px 24px;
+      border-radius:12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.08);
+    }
+
+    label { 
+      display:block;
+      margin-top: 14px;
+      font-weight: 400; 
+    }
+
+    input, select {
+      width: 95%;
+      padding: 7px; 
+      margin-top: 5px;
+      border: 2px solid #ccc; 
+      border-radius: 5px;
+      font-size: 14px;
+    }
+
+    .inline { 
+        display:flex; 
+        align-items:center; 
+        gap:15px; 
+        margin-top:20px;
+    }
+
+    .inline input[type="checkbox"] {
+       width:auto;
+       margin:0; 
+    }
+
+    button[type="submit"], input[type="submit"] {
+      width: 100%; 
+      margin-top: 18px; 
+      padding: 12px; 
+      border: none;
+      border-radius: 10px; 
+      background:#1e3a8a;
+      color:white; 
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    button[type="submit"]:hover, input[type="submit"]:hover { background:#152a63; } small { color:#666; }
+  </style>
+</head>
+
+<body>
+
+  <h2  style="color:black;font-family:Arial; font-size:20px;">Event Registration </h2>
+
+  <!-- Native HTML validation only (no custom JS validation) -->
+  <form action="#" method="post">
+    <!-- Full Name: text, required, at least 3 characters -->
+    <label for="fullName">Full Name</label>
+    <input
+      type="text"
+      id="fullName"
+      name="fullName"
+      minlength="3"
+      required
+      autocomplete="name"
+      placeholder="Enter your full name"/>
+
+    <!-- Email: email, required -->
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      autocomplete="email"
+      placeholder="you@example.com"/>
+
+    <!-- Phone: exactly 10 digits -->
+    <label for="phone">Phone Number <small>(10 digits)</small></label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      inputmode="numeric"
+      pattern="^\d{10}$"
+      required
+      placeholder="9876543210"
+      title="Enter exactly 10 digits (e.g., 9876543210)"/>
+
+    <!-- Age: number 18–60 -->
+    <label for="age">Age</label>
+    <input
+      type="number"
+      id="age"
+      name="age"
+      min="18"
+      max="60"
+      required
+      placeholder="Enter your age"/>
+
+    <!-- Event Date: today or later -->
+    <label for="eventDate">Event Date</label>
+    <input
+      type="date"
+      id="eventDate"
+      name="eventDate"
+      required/>
+
+    <!-- Event Type: must select one -->
+    <label for="eventType">Select Event Type</label>
+    <select id="eventType" name="eventType" required>
+      <option value="" selected disabled>-- Select an option --</option>
+      <option value="workshop">Workshop</option>
+      <option value="webinar">Webinar</option>
+      <option value="hackathon">Hackathon</option>
+    </select>
+
+    <!-- Agree to Terms: required -->
+    <div class="inline">
+      <input type="checkbox" id="agree" name="agree" required />
+      <label for="agree" style="margin-top:0; font-weight:400;">
+        I agree to the terms and conditions
+      </label>
+    </div>
+
+    <!-- Submit -->
+    <input type="submit" value="Submit" />
+  </form>
+
+  <script>
+    // Set the min date on the Event Date field to today (YYYY-MM-DD)
+    (function() {
+      const d = new Date();
+      const yyyy = d.getFullYear();
+      const mm = String(d.getMonth() + 1).padStart(2, '0');
+      const dd = String(d.getDate()).padStart(2, '0');
+      const today = `${yyyy}-${mm}-${dd}`;
+      const dateInput = document.getElementById('eventDate');
+      dateInput.min = today;
+    })();
+  </script>
+</body>
+</html>

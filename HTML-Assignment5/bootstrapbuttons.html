@@ -1,0 +1,218 @@
+﻿﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VistaVoyage</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@700&family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+  
+  
+  <style>
+   
+    body {
+      font-family: sans-serif;
+    }
+    .navbar {
+      background-color: black;
+    }
+    .navbar-brand {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2rem;
+    }
+    .class=row{
+        padding=2px;
+    }
+
+    footer {
+      background-color: #0d6efd;
+      color: white;
+      padding: 30px 0;
+    }
+    footer a {
+      color: #fff;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+    footer a:hover {
+      color: #ddd;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar  -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">VistaVoyage</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <button type="button" class="btn btn-primary btn-sm">About Us</button>
+          <button type="button" class="btn btn-primary btn-sm">Contact Us</button>
+          <button type="button" class="btn btn-primary" disabled>Blog</button>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Big image -->
+  <img src="images/travelbanner2.jpg" alt="Big Banner Image" style="width:100%; height:60vh; object-fit:cover;">
+
+
+  <!-- About Us -->
+  <section id="about" class="container my-5">
+    <button type="button" class="btn btn-info btn-lg">About Us</button>
+    <p class="text-center">
+    <br>
+      Welcome to <strong>VistaVoyage</strong>! We help you discover the most amazing places around the world. 
+  Whether you love beaches, mountains, or cities, our curated destinations will inspire your next trip. 
+  Our goal is to make travel planning simple, exciting, and stress-free by bringing together hidden gems, 
+  popular landmarks, and unforgettable experiences. With us, every journey becomes more than just a trip. 
+  it's a story waiting to be lived and shared!
+    </p>
+  </section>
+
+  
+  <!-- Destinations -->
+<section id="destinations" class="container my-5">
+  <button type="button" class="btn btn-info btn-lg mb-4">Popular Destinations</button>
+
+  <div class="row">
+
+    <!-- Paris Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <img src="images/paris.jpg" class="card-img-top" alt="Paris">
+        <div class="card-body">
+          <button type="button" class="btn btn-dark">
+            Paris <span class="badge text-bg-secondary">4</span>
+          </button>
+
+          <div class="accordion accordion-flush mt-3" id="accordionParis">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingParis">
+                <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#collapseParis" 
+                        aria-expanded="false" 
+                        aria-controls="collapseParis">
+                  Know More
+                </button>
+              </h2>
+              <div id="collapseParis" class="accordion-collapse collapse" 
+                   aria-labelledby="headingParis" 
+                   data-bs-parent="#accordionParis">
+                <div class="accordion-body">
+                  The city of lights and love awaits you.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- card-body -->
+      </div> <!-- card -->
+    </div> <!-- col -->
+
+    <!-- New York Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <img src="images/newyork.jpg" class="card-img-top" alt="New York">
+        <div class="card-body">
+          <button type="button" class="btn btn-dark">
+            New York <span class="badge text-bg-secondary">4</span>
+          </button>
+
+          <div class="accordion accordion-flush mt-3" id="accordionNY">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingNY">
+                <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#collapseNY" 
+                        aria-expanded="false" 
+                        aria-controls="collapseNY">
+                  Know More
+                </button>
+              </h2>
+              <div id="collapseNY" class="accordion-collapse collapse" 
+                   aria-labelledby="headingNY" 
+                   data-bs-parent="#accordionNY">
+                <div class="accordion-body">
+                  Experience the city that never sleeps.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- card-body -->
+      </div> <!-- card -->
+    </div> <!-- col -->
+
+    <!-- Bali Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card shadow-sm">
+        <img src="images/bali.jpg" class="card-img-top" alt="Bali">
+        <div class="card-body">
+          <button type="button" class="btn btn-dark">
+            Bali <span class="badge text-bg-secondary">4</span>
+          </button>
+
+          <div class="accordion accordion-flush mt-3" id="accordionBali">
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingBali">
+                <button class="accordion-button collapsed" type="button" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#collapseBali" 
+                        aria-expanded="false" 
+                        aria-controls="collapseBali">
+                  Know More
+                </button>
+              </h2>
+              <div id="collapseBali" class="accordion-collapse collapse" 
+                   aria-labelledby="headingBali" 
+                   data-bs-parent="#accordionBali">
+                <div class="accordion-body">
+                  Relax on stunning beaches and enjoy tropical vibes.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> <!-- card-body -->
+      </div> <!-- card -->
+    </div> <!-- col -->
+
+  </div> <!-- row -->
+</section>
+
+  <!-- Contact -->
+  <section id="contact" class="container my-5 text-center">
+    <div class="alert alert-info" role="alert">
+     Contact Us!
+    </div>
+    <p>Email: info@vistavoyage.com</p>
+    <p>Phone: +91 98765 43210</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p> Vista Voyage | All Rights Reserved</p>
+      <div class="mb-3">
+        <a href="#"><i class="bi bi-facebook fs-3"></i></a>
+        <a href="#"><i class="bi bi-instagram fs-3"></i></a>
+        <a href="#"><i class="bi bi-twitter fs-3"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
