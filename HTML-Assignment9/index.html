@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Server CRUD</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <section class="text-center p-3 bg-success text-white">
+        <h1 class="mb-3">JSON Server CRUD Example</h1>
+        <button id="showBtn" class="btn btn-light btn-lg">Show Data</button>
+        <button id="addBtn" class="btn btn-warning btn-lg">Add Data</button>
+    </section>
+
+    <div class="container mt-3">
+        <table id="dataTable" class="table table-bordered table-striped" style="display:none;">
+            <thead class="table-success">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        const API_URL = "http://localhost:3000/users";
+        const showBtn = document.getElementById("showBtn");
+        const addBtn = document.getElementById("addBtn");
+        const table = document.getElementById("dataTable");
+        const dataTableBody = table.querySelector("tbody");
+
+
+        async function fetchAndDisplayUsers() {
+            dataTableBody.innerHTML = ""; // clear old rows
+
+            const res = await fetch(API_URL);
+            const users = await res.json();
+
+            table.style.display = "table";
+
+            users.forEach(user => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+          <td>${user.id}</td>
+          <td>${user.name}</td>
+          <td>${user.email}</td>
+          <td>${user.username}</td>
+          <td>
+<button class="btn btn-danger btn-sm" data-id="${user.id}">Delete</button>          </td>
+        `;
+                dataTableBody.appendChild(row);
+            });
+
+            // delete button
+            document.querySelectorAll("button.btn-danger").forEach(btn => {
+                btn.addEventListener("click", () => {
+                    const id = btn.getAttribute("data-id");
+                    deleteUser(id);
+                });
+            });
+        }
+
+        // Add user
+        async function addUser() {
+            const name = prompt("Enter name:");
+            const email = prompt("Enter email:");
+            const username = prompt("Enter username:");
+            if (!name || !email || !username) return;
+
+            await fetch(API_URL, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ name, email, username })//normal objevts are being converted to strings
+
+            });
+
+            fetchAndDisplayUsers();
+        }
+
+        // Delete user
+        async function deleteUser(id) {
+            console.log("Deleting user:", id);
+
+            let url = API_URL + "/" + id;
+            let res = await fetch(url, { method: "DELETE" });
+
+            if (res.ok) {
+                console.log("Deleted successfully");
+                fetchAndDisplayUsers(); //refresh
+            } else {
+                console.error("Delete failed:", res.status);
+                alert("Delete failed. Check console.");
+            }
+        }
+
+        // Events
+        showBtn.addEventListener("click", fetchAndDisplayUsers);
+        addBtn.addEventListener("click", addUser);
+    </script>
+</body>
+
+</html>
